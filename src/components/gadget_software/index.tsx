@@ -61,7 +61,7 @@ const Gadget_software = () => {
                         {
                             item.sub_cat.map((deep_info:any,index:number)=>{
                                 return(
-                                    <div className='flex flex-col gap-3'>
+                                    <div key={index} className='flex flex-col gap-3'>
                                         <Image src={deep_info.image} alt='No Image' width={500} height={500}/>
                                         <div className='flex flex-col gap-2'>
                                             <h1 className="text-xl font-semibold">{deep_info.title}</h1>
