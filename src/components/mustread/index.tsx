@@ -7,16 +7,15 @@ import Link from 'next/link'
 const MustReadPage = () => {
     return (
         <div className='p-10'>
-            <span className='flex flex-row justify-between px-2 pb-5'>
-
+            <span className='flex flex-row justify-between items-center px-2 pb-5'>
                 <h1 className='text-2xl font-semibold text-gray-700'>
                 Must Read
-
-
                 </h1>
                 <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
+                <p className='hover:translate-x-2 transition duration-500'>  
                     View All
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    </p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hover:translate-x-1 transition duration-500">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                     </svg>
                 </Link>

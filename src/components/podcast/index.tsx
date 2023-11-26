@@ -28,7 +28,7 @@ const PodcastPage = () => {
         <span className='flex flex-row justify-center items-center'>
         {/* <Link className='col-span-1 bg-indigo-600 rounded-full py-3 px-5 text-white font-semibold' href="#">Listen Now</Link> */}
         <Link href="#"
-            className="transform hover:scale-110 transition duration-500 ease-in-out bg-indigo-500 text-white font-bold px-5 py-2 mt-5 rounded-full">
+            className="transform hover:scale-110 transition duration-500 ease-in-out bg-indigo-500 text-white font-bold px-5 py-2  rounded-full">
             Listen Now
           </Link>
         </span>

@@ -1,8 +1,8 @@
 "use client";
-import React, { Fragment, useRef } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import { Fragment } from 'react';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -35,11 +35,14 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <img
+                <div className="flex flex-shrink-0 items-center h-full">
+                  <Image
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    
+                    src="/slider/blog_icon.png"
                     alt="Your Company"
+                    width={700}
+                    height={500}
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -49,7 +52,7 @@ const Navbar = () => {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-fuchsia-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-fuchsia-900 text-white font-semibold' : 'text-white font-semibold hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}

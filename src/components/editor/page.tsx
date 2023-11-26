@@ -8,7 +8,7 @@ const EditorPage = () => {
     let array: any = []
     data.map((item: any, index: number) => {
       array.push(
-        <div key={index} className=' p-2'>
+        <div key={index} className='p-2'>
           <Image style={{ width: '100%', height: '100%', paddingBottom: '10px' }} src={item.image} alt='No image' width={500} height={500} />
           <h1>{item.title}</h1>
         </div>
@@ -19,16 +19,16 @@ const EditorPage = () => {
   return (
     <div className='bg-gradient-to-tr from-violet-500 to-orange-300 grid grid-cols-3 gap-3 p-5'>
       <div className='flex flex-col py-5 col-span-2'>
-        <span className='flex flex-row justify-between px-2 '>
+        <span className='flex flex-row justify-between items-center px-2 '>
 
           <h1 className='text-2xl font-semibold text-white'>
-            Editor's Pick
-
-
+            Editors Pick
           </h1>
           <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
+          <p className='hover:translate-x-2 transition duration-500'> 
             View All
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hover:translate-x-1 transition duration-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </Link>
