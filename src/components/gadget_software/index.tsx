@@ -8,7 +8,7 @@ const Gadget_software = () => {
 
     const gadget_view = (data: any) => {
         let array: any = []
-        data.map((item: any, index: number) => {
+        data.slice(0,1).map((item: any, index: number) => {
             array.push(
                 <div key={index} className='flex flex-col gap-5'>
                     <Image style={{ width: '100%' }} src={item.image} alt="No image" width={500} height={500} />
@@ -45,7 +45,7 @@ const Gadget_software = () => {
 
     const software_view = (data: any) => {
         let array: any = []
-        data.map((item: any, index: number) => {
+        data.slice(0,1).map((item: any, index: number) => {
             array.push(
                 <div key={index} className='flex flex-col gap-5'>
                     <Image style={{ width: '100%' }} src={item.image} alt="No image" width={500} height={500} />

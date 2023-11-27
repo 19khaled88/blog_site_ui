@@ -1,4 +1,4 @@
-import { technology } from '@/app/source/db'
+import { recent_post, technology } from '@/app/source/db'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -6,7 +6,7 @@ import React from 'react'
 const TechnologyPage = () => {
     const techno_logy=(data:any)=>{
         let array:any =[]
-         data.map((item:any, index:number)=>{
+         data.slice(0,3).map((item:any, index:number)=>{
             array.push(
                 <div key={index} className='flex flex-col gap-3'>
                     <Image src={item.image} alt="No Image" width={1000} height={1000}/>
@@ -23,13 +23,14 @@ const TechnologyPage = () => {
          })
         return array
     }
+
     return (
         <div className='px-10 '>
             <span className='flex flex-row justify-between items-center pb-5'>
                 <h1 className='text-2xl font-semibold text-gray-600 '>
                     Technology
                 </h1>
-                <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
+                <Link href="/technology" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
                 <p className='hover:translate-x-2 transition duration-500'> 
                     More in Technology
                     </p>
@@ -42,6 +43,7 @@ const TechnologyPage = () => {
                 {
                     techno_logy(technology)
                 }
+               
             </div>
         </div>
     )

@@ -1,21 +1,62 @@
 "use client";
+import { useState,useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Fragment } from 'react';
+import { usePathname } from 'next/navigation'
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+
+
+// const navigation = [
+//   { name: 'Dashboard', href: '#', current: true },
+//   { name: 'Technology', href: '/technology', current: false },
+//   { name: 'Gadget', href: '/gadget', current: false },
+//   { name: 'Software', href: '/software', current: false },
+//   { name: 'Games', href: '/games', current: false },
+//   { name: 'Podcast', href: '/podcast', current: false },
+// ]
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
 const Navbar = () => {
+  const pathname = usePathname()
+  const [navigation, setNavigation] = useState({
+    nav: [
+      { name: 'Technology', href: '/technology', current: false },
+      { name: 'Gadget', href: '/gadget', current: false },
+      { name: 'Software', href: '/software', current: false },
+      { name: 'Apps', href: '/application', current: false },
+      { name: 'Games', href: '/games', current: false },
+      { name: 'Podcast', href: '/podcast', current: false },
+    ]
+  })
+
+  useEffect(()=>{
+    let newState = { ...navigation, nav: [...navigation.nav] };
+    const matchHref = newState.nav.findIndex((item) => item.href === pathname);
+    if (matchHref != -1) {
+      newState.nav[matchHref] = {
+        ...newState.nav[matchHref],
+        current: !newState.nav[matchHref].current
+      }
+    }
+    setNavigation(newState)
+
+  },[])
+  const navigationHandler = () => {
+    //  let updatedNav = navigation.nav.map((item,index)=>{
+    //     if(item.href === pathname){
+    //       return({...item, current:!item.current})
+    //     } return item
+    //   })
+    //   setNavigation({nav:updatedNav})
+
+  }
+  
   return (
     <Disclosure as="nav" className="bg-gradient-to-r from-red-500">
       {({ open }) => (
@@ -35,21 +76,21 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center h-full">
+                <Link href="/" className="flex flex-shrink-0 items-center h-full">
                   <Image
                     className="h-8 w-auto"
-                    
                     src="/slider/blog_icon.png"
                     alt="Your Company"
                     width={700}
                     height={500}
                   />
-                </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.nav.map((item: any, index: number) => (
                       <a
-                        key={item.name}
+                        onClick={()=>navigationHandler()}
+                        key={index}
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-fuchsia-900 text-white font-semibold' : 'text-white font-semibold hover:bg-gray-700 hover:text-white',
@@ -133,9 +174,9 @@ const Navbar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
+              {navigation.nav.map((item: any, index: number) => (
                 <Disclosure.Button
-                  key={item.name}
+                  key={index}
                   as="a"
                   href={item.href}
                   className={classNames(
