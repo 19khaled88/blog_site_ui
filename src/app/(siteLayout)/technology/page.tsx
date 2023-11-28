@@ -18,7 +18,7 @@ const TechnologyPage = () => {
                             {
                                 item.category.map((link: any, index: number, arr: any) => {
                                     return (
-                                        <Link className={`link ${styles.link_underline} ${styles.link_underline_black} ${styles.text_black} pb-1 hover:text-indigo-600`} href={`${link.toLowerCase().split(' ').join('_')}`}>{index != (arr.length - 1) ? link + ',' : link}</Link>
+                                        <Link key={index} className={`link ${styles.link_underline} ${styles.link_underline_black} ${styles.text_black} pb-1 hover:text-indigo-600`} href={`${link.toLowerCase().split(' ').join('_')}`}>{index != (arr.length - 1) ? link + ',' : link}</Link>
                                     )
                                 })
                             }
