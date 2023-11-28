@@ -2,12 +2,13 @@ import { recent_post } from '@/app/source/db'
 import Link from 'next/link'
 import React from 'react'
 
+
 const RecentPosts = () => {
     const recent_posts=(data:any)=>{
         let array:any=[]
             data.map((item:any, index:number)=>{
                 array.push(
-                    <Link href={item}>{item}</Link>
+                    <Link className={`pb-1 hover:text-indigo-600 w-fit`} href={item}>{item}</Link>
                 )
             })
 

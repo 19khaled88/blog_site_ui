@@ -44,8 +44,8 @@ const AppPage = () => {
         return array
     }
     return (
-        <div className="p-10 grid grid-cols-3 gap-5">
-            <div className="pt-5 divide-y-2 col-span-2">
+        <div className="p-10 grid lg:grid-cols-3 gap-5">
+            <div className="pt-5 divide-y-2 lg:col-span-2">
                 <div>
                     <h1 className="py-5 text-4xl font-bold text-gray-700">Apps</h1>
                 </div>
@@ -55,7 +55,7 @@ const AppPage = () => {
                     }
                 </div>
             </div>
-            <div className="pt-5 flex flex-col gap-10 divide-y-2">
+            <div className="flex flex-col md:flex-row lg:flex-col gap-10 pt-5 lg:divide-y-2">
                 <div>
                     <h1 className="py-5 text-4xl font-bold text-gray-700">Categories</h1>
                     <div>

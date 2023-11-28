@@ -8,10 +8,10 @@ const ApplicationPage = () => {
         let array: any = []
         data.map((item: any, index: number) => {
             array.push(
-                <div key={index} className='flex flex-col gap-3'>
+                <div key={index} className='grid md:grid-cols-2  lg:grid-cols-1 gap-3'>
                     <Image src={item.image} alt="No Image" width={1000} height={1000} />
                     <div className='flex flex-col gap-2'>
-                        <h1 className='text-2xl '>{item.title}</h1>
+                        <h1 className='lg:text-xl xl:text-2xl '>{item.title}</h1>
                         <span className='flex flex-row justify-between'>
                             <p className='text-sm'>{item.user}</p>
                             <p className='text-sm'>{item.date}</p>
@@ -25,8 +25,8 @@ const ApplicationPage = () => {
     }
     return (
         <div className='p-10 '>
-            <span className='flex flex-row justify-between items-center pb-5'>
-                <h1 className='text-2xl font-semibold text-gray-600 '>
+            <span className='flex flex-row justify-between items-center pr-2 pb-5'>
+                <h1 className='text-2xl font-semibold border border-1 border-red-500 px-2 bg-indigo-500 text-white'>
                     Apps
                 </h1>
                 <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
@@ -38,7 +38,7 @@ const ApplicationPage = () => {
                     </svg>
                 </Link>
             </span>
-            <div className='grid grid-cols-3 gap-5'>
+            <div className='grid lg:grid-cols-3 gap-5'>
                 {
                     applications(application)
                 }

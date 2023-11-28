@@ -8,17 +8,21 @@ const EditorPage = () => {
     let array: any = []
     data.map((item: any, index: number) => {
       array.push(
-        <div key={index} className='p-2'>
-          <Image style={{ width: '100%', height: '100%', paddingBottom: '10px' }} src={item.image} alt='No image' width={500} height={500} />
-          <h1>{item.title}</h1>
+        <div key={index} className='p-2 grid grid-cols-2 md:grid-cols-1 items-center gap-3'>
+          <Image className={`
+            w-full 
+            h-full 
+            pb-3
+          `} src={item.image} alt='No image' width={500} height={500} />
+          <h1 className=''>{item.title}</h1>
         </div>
       )
     })
     return array
   }
   return (
-    <div className='bg-gradient-to-tr from-violet-500 to-orange-300 grid grid-cols-3 gap-3 p-5'>
-      <div className='flex flex-col py-5 col-span-2'>
+    <div className='bg-gradient-to-tr from-violet-500 to-orange-300 grid md:grid-cols-1 lg:grid-cols-3 gap-3 p-5'>
+      <div className='flex flex-col pt-5 lg:col-span-2'>
         <span className='flex flex-row justify-between items-center px-2 '>
 
           <h1 className='text-2xl font-semibold text-white'>
@@ -33,7 +37,7 @@ const EditorPage = () => {
             </svg>
           </Link>
         </span>
-        <div className='flex flex-row pb-5'>
+        <div className='grid md:grid-cols-3 pb-5'>
           {editorsPicture(editors_pict)}
         </div>
       </div>

@@ -20,12 +20,12 @@ const Gadget_software = () => {
                         </span>
                         <p>{item.info}</p>
                     </div>
-                    <div className='flex flex-row gap-3'>
+                    <div className='flex flex-col lg:flex-row gap-3'>
                         {
                             item.sub_cat.map((deep_info:any,index:number)=>{
                                 return(
                                     <div key={index} className='flex flex-col gap-3'>
-                                        <Image src={deep_info.image} alt='No Image' width={500} height={500}/>
+                                        <Image className='w-full' src={deep_info.image} alt='No Image' width={500} height={500}/>
                                         <div className='flex flex-col gap-2'>
                                             <h1 className="text-xl font-semibold">{deep_info.title}</h1>
                                             <p>{deep_info.date}</p>
@@ -57,12 +57,12 @@ const Gadget_software = () => {
                         </span>
                         <p>{item.info}</p>
                     </div>
-                    <div className='flex flex-row gap-3'>
+                    <div className='flex flex-col lg:flex-row gap-3'>
                         {
                             item.sub_cat.map((deep_info:any,index:number)=>{
                                 return(
                                     <div key={index} className='flex flex-col gap-3'>
-                                        <Image src={deep_info.image} alt='No Image' width={500} height={500}/>
+                                        <Image className='w-full' src={deep_info.image} alt='No Image' width={500} height={500}/>
                                         <div className='flex flex-col gap-2'>
                                             <h1 className="text-xl font-semibold">{deep_info.title}</h1>
                                             <p>{deep_info.date}</p>
@@ -83,13 +83,11 @@ const Gadget_software = () => {
 
 
     return (
-        <div className='grid grid-cols-2 gap-5 p-10'>
+        <div className='grid md:grid-cols-2 gap-5 p-10'>
             <div>
                 <span className='flex flex-row justify-between pb-5 items-center'>
                     <h1 className='text-2xl font-semibold text-gray-600 '>
-                    
                         Gadget
-                       
                     </h1>
                     <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
                     <p className='hover:translate-x-2 transition duration-500'> 
@@ -109,7 +107,7 @@ const Gadget_software = () => {
             <div>
                 <span className='flex flex-row justify-between pb-5 items-center'>
                     <h1 className='text-2xl font-semibold text-gray-600 '>
-                        Technology
+                        Software
                     </h1>
                     <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
                     <p className='hover:translate-x-2 transition duration-500'> 

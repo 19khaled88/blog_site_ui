@@ -7,12 +7,19 @@ const TechReviewPage = () => {
         let array: any = []
         data.map((item: any, index: number) => {
             array.push(
-                <div key={index} className='flex flex-row gap-5'>
-                    <Image style={{ width: '50%', height: '50%' }} src={item.image} alt="No image" width={500} height={500} />
-                    <div className='flex flex-col gap-5'>
+                <div key={index} className='grid sm:grid-cols-1 md:grid-cols-2 gap-5'>
+                    <Image
+                        // style={{ width: '100%', height: '100%' }}
+                        className='w-full h-full'
+                        src={item.image}
+                        alt="No image"
+                        width={500}
+                        height={500}
+                    />
+                    <div className='flex flex-col gap-3 lg:gap-5'>
                         <h2 className='text-xs tracking-widest text-teal-500 font-semibold'>{item.short_name}</h2>
-                        <h1 className='text-3xl text-gray-600 font-semibold'>{item.title}</h1>
-                        <h3>{item.info}</h3>
+                        <h1 className=' text-xl lg:text-2xl xl:text-3xl text-gray-600 font-semibold'>{item.title}</h1>
+                        <h3 className='lg:text-sm'>{item.info}</h3>
                         <span className='flex flex-row justify-between'>
                             <p className='flex flex-row gap-2'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -52,13 +59,13 @@ const TechReviewPage = () => {
         return array
     }
     return (
-        <div className='grid grid-cols-3 gap-5 p-10 bg-slate-50 h-fit'>
-            <div className='col-span-2 '>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 p-10 bg-slate-50 h-fit'>
+            <div className='lg:col-span-2 '>
                 <span className='flex flex-row justify-between items-center pb-5'>
                     <h1 className='text-2xl font-semibold text-gray-500'>Tech Reviews</h1>
                     <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
-                    <p className='hover:translate-x-2 transition duration-500'> 
-                        More in Tech Reviews
+                        <p className='hover:translate-x-2 transition duration-500'>
+                            More in Tech Reviews
                         </p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hover:translate-x-1 transition duration-500">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
@@ -72,9 +79,9 @@ const TechReviewPage = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col gap-2 divide-y'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 divide-y  '>
                 <div className='pb-5' >
-                    <Image src="/slider/get_the_app.png" alt='No Image' width={1000} height={1000} />
+                    <Image src="/slider/get_the_app.png" className='h-full' alt='No Image' width={1000} height={1000} />
                 </div>
                 <div className='pt-5' >
                     <h1 className='text-gray-600 text-2xl font-semibold pb-6'>Stay connected</h1>

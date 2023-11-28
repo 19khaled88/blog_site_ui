@@ -3,7 +3,7 @@ import React from 'react'
 
 const FooterPage = () => {
   return (
-    <div className='grid grid-cols-4 gap-5 bg-slate-100 px-10 py-16'>
+    <div className='grid md:grid-cols-4 gap-5 bg-slate-100 px-10 py-16'>
       <div className='text-3xl font-bold text-indigo-500'>New Blog</div>
       <div className='flex flex-col gap-5'>
         <h1 className="text-2xl font-semibold text-indigo-400">Company</h1>

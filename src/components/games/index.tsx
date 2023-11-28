@@ -6,8 +6,8 @@ import Image from 'next/image'
 const GamePage = () => {
     return (
         <div className='px-10'>
-            <span className='flex flex-row justify-between items-center px-2 pb-5'>
-                <h1 className='text-2xl font-semibold text-gray-700'>
+            <span className='flex flex-row justify-between items-center pb-5'>
+                <h1 className='text-2xl font-semibold border border-1 border-red-500 px-2 bg-indigo-500 text-white'>
                     Games
                 </h1>
                 <Link href="#" className='text-indigo-700 font-bold flex flex-row gap-2 transition duration-500 transform hover:translate-x-2'>
@@ -19,7 +19,7 @@ const GamePage = () => {
                     </svg>
                 </Link>
             </span>
-            <div className='flex flex-row gap-5 '>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
                 <Link href="#" className='relative'>
                     <Image style={{ width: '100%' }} src={game_1} alt="No image" width={500} height={500} />
                     <div className='absolute bottom-5 pl-5 text-white flex flex-col gap-5 text-xs font-semibold'>
@@ -32,8 +32,8 @@ const GamePage = () => {
                     <Image style={{ width: '100%' }} src={game_2} alt="No image" width={500} height={500} />
                     <div className='absolute bottom-5 pl-5 text-white flex flex-col gap-5 text-xs font-semibold'>
 
-                        <h1 className='text-2xl'>A Genetic Oddity May Give Octopuses and Squids Their Smarts</h1>
-                        <p className='text-white text-lg'>Cursus iaculis etiam in In nullam donec sem sed consequat scelerisque nibh amet, massa egestas risus, gravida vel amet, imperdiet …</p>
+                        <h1 className='text-md sm:text-lg md:text-xl lg:text-lg'>A Genetic Oddity May Give Octopuses and Squids Their Smarts</h1>
+                        <p className='text-white text-xs sm:text-md md:text-lg'>Cursus iaculis etiam in In nullam donec sem sed consequat scelerisque nibh amet, massa egestas risus, gravida vel amet, imperdiet …</p>
                     </div>
                 </Link>
             </div>

@@ -3,7 +3,7 @@ import Image from "next/image"
 const page = () => {
     return (
         <div style={{ backgroundColor: '#F5F5F5' }} className="p-10 flex flex-col gap-10">
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid lg:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-10">
                     <h1 className="text-4xl font-bold text-gray-600">Podcast</h1>
                     <p>Quis malesuada vestibulum augue non dui leo purus aliquet a semper risus nec placerat libero tempor interdum faucibus.</p>
@@ -22,7 +22,7 @@ const page = () => {
             </div>
             <div>
                 <h1 className="text-3xl font-bold text-gray-500 pb-5">Latest Episode</h1>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid lg:grid-cols-2 gap-5">
                     <div className="flex flex-col gap-4">
                         <p>Weekly shows to listen to with earbuds, headphones and more</p>
                         <Image style={{ width: '100%' }} src="/slider/podcast_2.jpg" alt="No image" width={500} height={500} />
@@ -38,16 +38,16 @@ const page = () => {
                             <p>Ethan H.</p>
                             <p>January 29</p>
                         </span>
-                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none font-bold">
+                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none font-bold">
                             Listen now
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-5">
-                <div className="flex flex-col gap-4">
-                    <Image src="/slider/podcast_6.jpg" alt="No image" width={500} height={500}/>
-                    <div className="flex flex-col items-start justify-center gap-7">
+            <div className="grid lg:grid-cols-3 gap-5">
+                <div className="flex flex-col md:flex-row lg:flex-col gap-4">
+                    <Image className="w-full h-full" src="/slider/podcast_6.jpg" alt="No image" width={500} height={500}/>
+                    <div className="flex flex-col items-start justify-center gap-7 md:gap-2 lg:gap-7">
                         <h1 className="text-3xl font-bold text-gray-600">Glitchy Light</h1>
                         <p>
                             Purus convallis nunc quam turpis ultrices gravida consectetur id
@@ -58,14 +58,14 @@ const page = () => {
                             <p>Ethan H.</p>
                             <p>January 29</p>
                         </span>
-                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none font-bold">
+                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none font-bold">
                             Listen now
                         </button>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <Image src="/slider/podcast_7.jpg" alt="No image" width={500} height={500}/>
-                    <div className="flex flex-col items-start justify-center gap-7">
+                <div className="flex flex-col md:flex-row lg:flex-col gap-4">
+                    <Image className="w-full h-full" src="/slider/podcast_7.jpg" alt="No image" width={500} height={500}/>
+                    <div className="flex flex-col items-start justify-center gap-7 md:gap-2 lg:gap-7">
                         <h1 className="text-3xl font-bold text-gray-600">Powerup Games</h1>
                         <p>
                             Purus convallis nunc quam turpis ultrices gravida consectetur id
@@ -76,14 +76,14 @@ const page = () => {
                             <p>Ethan H.</p>
                             <p>January 29</p>
                         </span>
-                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none font-bold">
+                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm  disabled:opacity-50 disabled:pointer-events-none font-bold">
                             Listen now
                         </button>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <Image src="/slider/podcast_8.jpg" alt="No image" width={500} height={500}/>
-                    <div className="flex flex-col items-start justify-center gap-7">
+                <div className="flex flex-col md:flex-row lg:flex-col gap-4">
+                    <Image className="w-full h-full" src="/slider/podcast_8.jpg" alt="No image" width={500} height={500}/>
+                    <div className="flex flex-col items-start justify-center gap-7 md:gap-2 lg:gap-7">
                         <h1 className="text-3xl font-bold text-gray-600">Tech 4 Life</h1>
                         <p>
                             Purus convallis nunc quam turpis ultrices gravida consectetur id
@@ -94,7 +94,7 @@ const page = () => {
                             <p>Ethan H.</p>
                             <p>January 29</p>
                         </span>
-                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none font-bold">
+                        <button type="button" className="hover:bg-blue-600 hover:text-white py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-full border border-indigo-500 bg-white text-sky-800 shadow-sm  disabled:opacity-50 disabled:pointer-events-none font-bold">
                             Listen now
                         </button>
                     </div>

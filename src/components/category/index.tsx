@@ -1,13 +1,13 @@
 import { category_name } from '@/app/source/db'
 import Link from 'next/link'
 import React from 'react'
-
+import styles from '../../css/category.module.css'
 const Category = () => {
     const category=(data:any)=>{
         let array:any=[]
             data.map((item:any, index:number)=>{
                 array.push(
-                    <Link href={item.toLowerCase().split(' ').join('_')}>{item}</Link>
+                    <Link className={`link ${styles.link_underline} ${styles.link_underline_black} ${styles.text_black} pb-1 hover:text-indigo-600 w-fit`} href={item.toLowerCase().split(' ').join('_')}>{item}</Link>
                 )
             })
 
