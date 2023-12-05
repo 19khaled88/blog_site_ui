@@ -1,13 +1,13 @@
 "use client";
-import { useState,useEffect } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Fragment } from 'react';
-import { usePathname } from 'next/navigation'
-
-
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Fragment, useEffect, useState } from "react";
 
 // const navigation = [
 //   { name: 'Dashboard', href: '#', current: true },
@@ -19,34 +19,33 @@ import { usePathname } from 'next/navigation'
 // ]
 
 function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 const Navbar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const [navigation, setNavigation] = useState({
     nav: [
-      { name: 'Technology', href: '/technology', current: false },
-      { name: 'Gadget', href: '/gadget', current: false },
-      { name: 'Software', href: '/software', current: false },
-      { name: 'Apps', href: '/application', current: false },
-      { name: 'Games', href: '/games', current: false },
-      { name: 'Podcast', href: '/podcast', current: false },
-    ]
-  })
+      { name: "Technology", href: "/technology", current: false },
+      { name: "Gadget", href: "/gadget", current: false },
+      { name: "Software", href: "/software", current: false },
+      { name: "Apps", href: "/application", current: false },
+      { name: "Games", href: "/games", current: false },
+      { name: "Podcast", href: "/podcast", current: false },
+    ],
+  });
 
-  useEffect(()=>{
+  useEffect(() => {
     let newState = { ...navigation, nav: [...navigation.nav] };
     const matchHref = newState.nav.findIndex((item) => item.href === pathname);
     if (matchHref != -1) {
       newState.nav[matchHref] = {
         ...newState.nav[matchHref],
-        current: !newState.nav[matchHref].current
-      }
+        current: !newState.nav[matchHref].current,
+      };
     }
-    setNavigation(newState)
-
-  },[])
+    setNavigation(newState);
+  }, [pathname,navigation]);
   const navigationHandler = () => {
     //  let updatedNav = navigation.nav.map((item,index)=>{
     //     if(item.href === pathname){
@@ -54,9 +53,8 @@ const Navbar = () => {
     //     } return item
     //   })
     //   setNavigation({nav:updatedNav})
+  };
 
-  }
-  
   return (
     <Disclosure as="nav" className="bg-gradient-to-r from-red-500">
       {({ open }) => (
@@ -76,7 +74,10 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <Link href="/" className="flex flex-shrink-0 items-center h-full">
+                <Link
+                  href="/"
+                  className="flex flex-shrink-0 items-center h-full"
+                >
                   <Image
                     className="h-8 w-auto"
                     src="/slider/blog_icon.png"
@@ -89,14 +90,16 @@ const Navbar = () => {
                   <div className="flex space-x-4">
                     {navigation.nav.map((item: any, index: number) => (
                       <a
-                        onClick={()=>navigationHandler()}
+                        onClick={() => navigationHandler()}
                         key={index}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-fuchsia-900 text-white font-semibold' : 'text-white font-semibold hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current
+                            ? "bg-fuchsia-900 text-white font-semibold"
+                            : "text-white font-semibold hover:bg-gray-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -138,8 +141,11 @@ const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="/dashboard"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -148,8 +154,11 @@ const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="/authentication/register"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Register
                           </a>
@@ -158,8 +167,11 @@ const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="/authentication/login"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Login
                           </a>
@@ -170,6 +182,8 @@ const Navbar = () => {
                 </Menu>
               </div>
             </div>
+            <Toaster />
+            <ToastContainer />
           </div>
 
           <Disclosure.Panel className="sm:hidden">
@@ -180,10 +194,12 @@ const Navbar = () => {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -193,7 +209,7 @@ const Navbar = () => {
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

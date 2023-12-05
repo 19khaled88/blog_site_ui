@@ -8,7 +8,7 @@ const RecentPosts = () => {
         let array:any=[]
             data.map((item:any, index:number)=>{
                 array.push(
-                    <Link className={`pb-1 hover:text-indigo-600 w-fit`} href={item}>{item}</Link>
+                    <Link key={index} className={`pb-1 hover:text-indigo-600 w-fit`} href={item}>{item}</Link>
                 )
             })
 
