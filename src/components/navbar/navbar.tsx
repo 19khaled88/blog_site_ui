@@ -45,7 +45,8 @@ const Navbar = () => {
       };
     }
     setNavigation(newState);
-  }, [pathname,navigation]);
+  }, [pathname]);
+  
   const navigationHandler = () => {
     //  let updatedNav = navigation.nav.map((item,index)=>{
     //     if(item.href === pathname){

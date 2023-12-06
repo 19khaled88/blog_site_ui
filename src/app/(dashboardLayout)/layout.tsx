@@ -33,6 +33,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <DashboardContent>
                     <Sidebar isOpened={isOpened} />
                     <DashboardPageContainer>{children}</DashboardPageContainer>
+                    {/* <DashboardPageContainer>{children}</DashboardPageContainer> */}
                 </DashboardContent>
                 <Footer />
             </DashboardContainer>

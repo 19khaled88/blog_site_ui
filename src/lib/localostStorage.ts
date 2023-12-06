@@ -1,9 +1,9 @@
 
 import config from "../helpers/config"
 const key_name = 'post_blog_storage'
-export const setLocalstorage=async(token:string)=>{
+export const setLocalstorage=(token:string)=>{
     try {
-        const ifExist =await getFromLocalstorage(key_name)
+        const ifExist = getFromLocalstorage(key_name)
         if(ifExist === null && token != null){
             localStorage.setItem(key_name,JSON.stringify(token))
             return {
@@ -25,7 +25,7 @@ export const setLocalstorage=async(token:string)=>{
    
 }
 
-export const getFromLocalstorage=async(key:string)=>{
+export const getFromLocalstorage=(key:string)=>{
     if(key != null){
        return localStorage.getItem(key)
     }else{
@@ -33,7 +33,7 @@ export const getFromLocalstorage=async(key:string)=>{
     }
 }
 
-export const removeLocalStorage=async(key:string)=>{
+export const removeLocalStorage=(key:string)=>{
     try {
        if(key != null || key !=undefined){
         localStorage.removeItem(key)
