@@ -6,8 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Toaster } from 'react-hot-toast';
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname,useRouter } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
+import path from "path";
 
 // const navigation = [
 //   { name: 'Dashboard', href: '#', current: true },
@@ -24,9 +25,10 @@ function classNames(...classes: any) {
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter()
   const [navigation, setNavigation] = useState({
     nav: [
-      { name: "Technology", href: "/technology", current: false },
+      { name: "Technology", href: "/technology", current: true },
       { name: "Gadget", href: "/gadget", current: false },
       { name: "Software", href: "/software", current: false },
       { name: "Apps", href: "/application", current: false },
@@ -35,17 +37,18 @@ const Navbar = () => {
     ],
   });
 
-  useEffect(() => {
-    let newState = { ...navigation, nav: [...navigation.nav] };
-    const matchHref = newState.nav.findIndex((item) => item.href === pathname);
-    if (matchHref != -1) {
-      newState.nav[matchHref] = {
-        ...newState.nav[matchHref],
-        current: !newState.nav[matchHref].current,
-      };
-    }
-    setNavigation(newState);
-  }, [pathname]);
+  // useEffect(() => {
+  //   let newState = { ...navigation, nav: [...navigation.nav] };
+  //   const matchHref = newState.nav.findIndex((item) => item.href === pathname);
+  //   if (matchHref != -1) {
+  //     newState.nav[matchHref] = {
+  //       ...newState.nav[matchHref],
+  //       current: !newState.nav[matchHref].current,
+  //     };
+  //   }
+  //     setNavigation(newState);
+    
+  // }, [pathname,navigation]);
   
   const navigationHandler = () => {
     //  let updatedNav = navigation.nav.map((item,index)=>{
@@ -94,13 +97,15 @@ const Navbar = () => {
                         onClick={() => navigationHandler()}
                         key={index}
                         href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-fuchsia-900 text-white font-semibold"
-                            : "text-white font-semibold hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
+                        // className={classNames(
+                        //   item.current
+                        //     ? "bg-fuchsia-900 text-white font-semibold"
+                        //     : "text-white font-semibold hover:bg-gray-700 hover:text-white",
+                        //   "rounded-md px-3 py-2 text-sm font-medium"
+                        // )}
+                        className={`${pathname === item.href ? "bg-fuchsia-900 text-white font-semibold":"text-white font-semibold hover:bg-gray-700 hover:text-white"} rounded-md px-3 py-2 text-sm font-medium`}
+                        aria-current={pathname === item.href ? "page" : undefined}
+                        // aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>

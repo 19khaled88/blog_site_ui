@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { MenuItem as MenuItemType } from "../../../contants/menu_items";
+import { MenuItem_role as MenuItemType } from "../../../contants/menu_items";
 import { MenuItemContainer } from "./styles";
 import MenuItemsList from "../MenuItemsList";
 import ExpandIcon from "../ExpandIcon";

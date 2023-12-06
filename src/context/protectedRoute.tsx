@@ -20,7 +20,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
         } else {
             setLoading(false)
         }
-    }, []);
+    }, [router]);
     if (loading === true) {
         return <div className="flex flex-row justify-center items-center"><h1>Loading...</h1></div>
     } else {

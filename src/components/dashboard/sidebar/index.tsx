@@ -2,8 +2,6 @@ import MenuItemsList from "../MenuItemsList";
 import { SidebarContainer } from "./styles";
 import { MENU_ITEMS } from "@/contants/menu_items"; 
 
-
-
 type SidebarProps = {
     isOpened: boolean;
   };
