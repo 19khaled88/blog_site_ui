@@ -35,7 +35,7 @@ export default function Header({ isOpened, toggleDrawer }: HeaderProps) {
             <IconContainer onClick={toggleDrawer}>
                 {isOpened ? <ChevronLeft /> : <Menu />}
             </IconContainer>
-            <TitleContainer>Header</TitleContainer>
+            <TitleContainer>Dashboard Header</TitleContainer>
             <NavigationContainer>
                 <Link href="/">Go to Website</Link>
                 <button onClick={logoutHandler}>Logout</button>

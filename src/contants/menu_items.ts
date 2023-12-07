@@ -1,4 +1,7 @@
 
+import { MdFormatListBulleted,MdFormatListBulletedAdd,MdOutlineCategory  } from "react-icons/md";
+import { BiCommentDetail,BiCategory } from "react-icons/bi";
+import { TbCategoryPlus } from "react-icons/tb";
 import {
     Dashboard,
     ShoppingCart,
@@ -12,6 +15,7 @@ import {
     PostAdd,
     AddComment
 } from '@styled-icons/material'
+
 import { useEffect } from 'react'
 
 type MenuOption ={
@@ -47,63 +51,65 @@ export type MenuItem ={
 const MENU_OPTIONS_ROLE_BASED:MenuOption_role[]=[
     {
         role:'ADMIN',
-        name: 'Dashboard',
-        icon: Dashboard,
-        url: '/dashboard'
+        name: 'Posts',
+        icon: MdFormatListBulleted,
+        url: '/dashboard/admin/posts'
     },
     {
         role:'ADMIN',
-        name: "Orders",
-        icon: ShoppingCart,
-        url: "/orders",
+        name: "Comments",
+        icon: BiCommentDetail,
+        url: "/dashboard/admin/comment",
+       
+    },
+    {
+        role:'ADMIN',
+        name: "Category",
+        icon: MdOutlineCategory,
+        url: "/dashboard/admin/comment",
         subItems: [
             {
                 role:'ADMIN',
-                name: "New",
-                icon: AddShoppingCart,
-                url: "/new-orders",
+                name: "Create",
+                icon: TbCategoryPlus,
+                url: "/dashboard/admin/category/create",
             },
             {
                 role:'ADMIN',
-                name: "Completed",
-                icon: Done,
-                url: "/completed-orders",
+                name: "List",
+                icon: BiCategory,
+                url: "/dashboard/admin/category/list",
+               
             },
         ],
+       
     },
     {
         role:'USER',
-        name: "Customers",
+        name: "Posts",
         icon: People,
-        url: "/customers",
+        url: "/",
         subItems: [
             {
                 role:'USER',
-                name: "Corporate",
-                icon: Business,
-                url: "/corporate",
+                name: "Create",
+                icon: MdFormatListBulletedAdd,
+                url: "/dashboard/user/posts/create",
             },
             {
                 role:'USER',
-                name: "SMB",
-                icon: HomeWork,
-                url: "/smb",
-                subItems: [
-                    {
-                        role:'USER',
-                        name: "Retail",
-                        icon: Person,
-                        url: "/retail",
-                    },
-                ],
+                name: "Post List",
+                icon: MdFormatListBulleted,
+                url: "/dashboard/user/posts/list",
+               
             },
         ],
     },
     {
         role:'USER',
-        name:'Inventory',
-        icon:AttachMoney,
-        url:"/inventory"
+        name:'Comments',
+        icon:BiCommentDetail,
+        url:"/dashboard/user/comment"
     }
 ]
 

@@ -33,8 +33,6 @@ const LoginPage: NextPage = () => {
     const handleChange = (event: any) => {
         const name = event.target.name
         const value = event.target.value
-
-
         setInputs(values => ({ ...values, [name]: value }))
     }
     const submitHandler = async (event: any) => {
@@ -53,7 +51,7 @@ const LoginPage: NextPage = () => {
 
                     setTimeout(() => {
                         router.push('/dashboard')
-                    }, 3000)
+                    }, 2000)
                 }
             }
             if (data.signin.status === 400) {
@@ -132,11 +130,26 @@ const LoginPage: NextPage = () => {
                                 </div>
                             </div>
                             <div className="flex items-center justify-between">
-                                <button
+                                {
+                                    loading ?
+                                        <button
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            disabled
+                                            type="button">
+                                            Loading....
+                                        </button> :
+                                        <button
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            type="submit">
+                                            Sign In
+                                        </button>
+
+                                }
+                                {/* <button
                                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                     type="submit">
                                     Sign In
-                                </button>
+                                </button> */}
                                 <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                                     Forgot Password?
                                 </a>
