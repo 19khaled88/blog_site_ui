@@ -11,6 +11,7 @@ export default  function MenuItemsList({ options }: MenuItemsListProps) {
 
   const role = IsRole()
   const res = options.filter((option)=>option.role === role?.userRole)
+  console.log(role,res)
   return (
     <>
       {res.map((option) => (
