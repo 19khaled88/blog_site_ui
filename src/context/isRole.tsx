@@ -12,7 +12,7 @@ interface MyToken {
 
 const IsRole = () => {
     const token = getFromLocalstorage(key_name)
-    console.log(token)
+   
     if (token && token != null) {
         const decoded = jwtDecode<MyToken>(token);
         return decoded

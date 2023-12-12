@@ -53,7 +53,7 @@ const MENU_OPTIONS_ROLE_BASED:MenuOption_role[]=[
         role:'ADMIN',
         name: 'Posts',
         icon: MdFormatListBulleted,
-        url: '/dashboard/admin/posts'
+        url: '/dashboard/admin/posts/list'
     },
     {
         role:'ADMIN',

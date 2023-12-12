@@ -1,25 +1,52 @@
-import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
-import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
+import React from "react";
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  ApolloProvider,
+  ApolloLink
+} from "@apollo/client";
+import { setContext } from '@apollo/client/link/context'
+const key_name = 'post_blog_storage'
+const database_url_public = "https://blog-site-demo-server.vercel.app/api/graphql";
+const database_url_local = "http://localhost:8001/api/graphql";
 
-
-//We do handle "RSC" and "SSR" use cases as completely separate.
-//You should generally try not to have overlapping queries between the two, 
-//as all queries made in SSR can dynamically update in the browser as the 
-//cache updates (e.g. from a mutation or another query), but queries made 
-//in RSC will not be updated in the browser - for that purpose, the full 
-//page would need to rerender. As a result, any overlapping data would result in inconsistencies in your UI.
-//So decide for yourself, which queries you want to make in RSC and which in SSR, and don't have them overlap.
-
-
-export const { getClient } = registerApolloClient(() => {
-  return new ApolloClient({
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-      // this needs to be an absolute url, as relative urls cannot be used in SSR
-      uri: "https://blog-site-demo-server.vercel.app/api/graphql",
-      // you can disable result caching here if you want to
-      // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
-      // fetchOptions: { cache: "no-store" },
-    }),
-  });
+const httpLink = createHttpLink({
+  uri: database_url_local
 });
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem(key_name);
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
+});
+
+// const roundTripLink = new ApolloLink((operation, forward) => {
+//   // Called before operation is sent to server
+//   operation.setContext({ start: new Date() });
+
+//   return forward(operation).map((data) => {
+//     // Called after server responds
+//     const time = new Date() - operation.getContext().start;
+//     console.log(`Operation ${operation.operationName} took ${time} to complete`);
+//     return data;
+//   });
+// });
+
+export const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+ 
+});
+
+
+
+
+
+
