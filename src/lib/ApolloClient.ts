@@ -8,8 +8,9 @@ import {
 } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context'
 const key_name = 'post_blog_storage'
-const database_url_public = "https://blog-site-demo-server.vercel.app/api/graphql";
-const database_url_local = "http://localhost:8001/api/graphql";
+const database_url_public = "https://blog-site-demo-server.vercel.app/graphql";
+const database_url_local = "http://localhost:8001/graphql";
+const database_url_local_1 = "http://localhost:8001/api/graphql";
 
 const httpLink = createHttpLink({
   uri: database_url_local

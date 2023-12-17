@@ -10,7 +10,7 @@ import {
 } from "@apollo/experimental-nextjs-app-support/ssr";
 const key_name = "post_blog_storage";
 const database_url_public =
-  "https://blog-site-demo-server.vercel.app/api/graphql";
+  "https://blog-site-demo-server.vercel.app/graphql";
 const database_url_local = "http://localhost:8001/graphql";
 const database_url_local_1 = "http://localhost:8001/api/graphql";
 // have a function to create a client for you
