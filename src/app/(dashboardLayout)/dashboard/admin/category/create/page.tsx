@@ -28,9 +28,13 @@ const CategoryCreatePage: React.FC = () => {
         } else {
             try {
                 const data = await category_insert({ variables: inputs })
-                toastify.success(data.data.category_create.message)
+                if(data.data.category_create.status === 400){
+                    toastify.warn(data.data.category_create.message)
+                } else if(data.data.category_create.status === 200){
+                    toastify.success(data.data.category_create.message)
+                }
+                
             } catch (error) {
-                console.log(error)
                 toastify.error('Something wrong!!')
             }
         }

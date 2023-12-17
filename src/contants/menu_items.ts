@@ -2,6 +2,7 @@
 import { MdFormatListBulleted,MdFormatListBulletedAdd,MdOutlineCategory  } from "react-icons/md";
 import { BiCommentDetail,BiCategory } from "react-icons/bi";
 import { TbCategoryPlus } from "react-icons/tb";
+import { GiVerticalBanner } from "react-icons/gi";
 import {
     Dashboard,
     ShoppingCart,
@@ -15,6 +16,7 @@ import {
     PostAdd,
     AddComment
 } from '@styled-icons/material'
+
 
 import { useEffect } from 'react'
 
@@ -83,6 +85,20 @@ const MENU_OPTIONS_ROLE_BASED:MenuOption_role[]=[
             },
         ],
        
+    },
+    {
+        role:'ADMIN',
+        name:"Banner",
+        icon:GiVerticalBanner,
+        url:"/dashboard/admin/banner",
+        subItems:[
+            {
+                role:'ADMIN',
+                name: "Create",
+                icon: GiVerticalBanner,
+                url: "/dashboard/admin/banner/create",
+            },
+        ]
     },
     {
         role:'USER',

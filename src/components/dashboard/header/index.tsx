@@ -19,7 +19,7 @@ export default function Header({ isOpened, toggleDrawer }: HeaderProps) {
     const logoutHandler = async () => {
         const isRemoved = await removeLocalStorage(key_name)
         if (isRemoved.success === true) {
-            toast.loading('Logout successful!', {
+            toast.loading('Logging out!', {
                 duration: 3000,
                 position: 'top-center',
             })

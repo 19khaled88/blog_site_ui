@@ -1,19 +1,19 @@
 "use client";
 // ^ this file needs the "use client" pragma
-import {headers} from 'next/headers'
-import { ApolloLink, HttpLink,ApolloClient,concat} from "@apollo/client";
-import {setContext} from '@apollo/client/link/context'
+import { ApolloLink, HttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import {
   ApolloNextAppProvider,
-  NextSSRInMemoryCache,
   NextSSRApolloClient,
+  NextSSRInMemoryCache,
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support/ssr";
-const key_name = 'post_blog_storage'
-const database_url_public = "https://blog-site-demo-server.vercel.app/api/graphql";
-const database_url_local = "http://localhost:8001/api/graphql";
+const key_name = "post_blog_storage";
+const database_url_public =
+  "https://blog-site-demo-server.vercel.app/api/graphql";
+const database_url_local = "http://localhost:8001/graphql";
+const database_url_local_1 = "http://localhost:8001/api/graphql";
 // have a function to create a client for you
-
 
 function makeClient() {
   const httpLink = new HttpLink({
@@ -28,35 +28,31 @@ function makeClient() {
     // const { data } = useSuspenseQuery(MY_QUERY, { context: { fetchOptions: { cache: "force-cache" }}});
   });
 
+  //   const authLink = new ApolloLink((operation, forward) => {
+  //     operation.setContext(({headers}) => ({
+  //         headers: {
+  //             authorization: `Bearer ${ref.current}`, // ref from your wrapper
+  //             ...headers
+  //         }
+  //     }));
+  //     return forward(operation);
+  // });
 
+  // Create an authentication link
+  const authLink = setContext(async () => {
+    // Get access token stored in cookie
+    const token = localStorage.getItem(key_name);
 
-//   const authLink = new ApolloLink((operation, forward) => {
-//     operation.setContext(({headers}) => ({
-//         headers: {
-//             authorization: `Bearer ${ref.current}`, // ref from your wrapper
-//             ...headers
-//         }
-//     }));
-//     return forward(operation);
-// });
+    // If the token is not defined, return an empty object
+    if (!token) return {};
 
-
-// Create an authentication link
-const authLink = setContext(async () => {
-  // Get access token stored in cookie
-  const token =  localStorage.getItem(key_name)
-
-  // If the token is not defined, return an empty object
-  if (!token) return {};
-
-  // Return authorization headers with the token as a Bearer token
-  return {
-    headers: {
-      authorization: token,
-    },
-  };
-});
-
+    // Return authorization headers with the token as a Bearer token
+    return {
+      headers: {
+        authorization: token,
+      },
+    };
+  });
 
   return new NextSSRApolloClient({
     // use the `NextSSRInMemoryCache`, not the normal `InMemoryCache`
@@ -75,16 +71,13 @@ const authLink = setContext(async () => {
           ])
         : authLink.concat(httpLink),
   });
-
-
 }
-
 
 // you need to create a component to wrap your app in
 export function ApolloWrapper({ children }: React.PropsWithChildren) {
-    return (
-      <ApolloNextAppProvider makeClient={makeClient}>
-        {children}
-      </ApolloNextAppProvider>
-    );
-  }
+  return (
+    <ApolloNextAppProvider makeClient={makeClient}>
+      {children}
+    </ApolloNextAppProvider>
+  );
+}

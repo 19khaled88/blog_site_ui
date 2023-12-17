@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const PostListPage = () => {
@@ -60,7 +61,7 @@ const PostListPage = () => {
                             </td>
                             <td className="p-4 border-b border-blue-gray-50">
                                 <div className="flex items-center gap-3">
-                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg" alt="John Michael" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
+                                    <Image src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg" alt="John Michael" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
                                     <div className="flex flex-col">
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">John Michael</p>
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">john@creative-tim.com</p>
@@ -104,7 +105,7 @@ const PostListPage = () => {
                             </td>
                             <td className="p-4 border-b border-blue-gray-50">
                                 <div className="flex items-center gap-3">
-                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg" alt="Alexa Liras" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
+                                    <Image src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg" alt="Alexa Liras" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
                                     <div className="flex flex-col">
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Alexa Liras</p>
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">alexa@creative-tim.com</p>
@@ -148,7 +149,7 @@ const PostListPage = () => {
                             </td>
                             <td className="p-4 border-b border-blue-gray-50">
                                 <div className="flex items-center gap-3">
-                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg" alt="Laurent Perrier" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
+                                    <Image src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg" alt="Laurent Perrier" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
                                     <div className="flex flex-col">
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Laurent Perrier</p>
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">laurent@creative-tim.com</p>
@@ -193,7 +194,7 @@ const PostListPage = () => {
                             </td>
                             <td className="p-4 border-b border-blue-gray-50">
                                 <div className="flex items-center gap-3">
-                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg" alt="Michael Levi" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
+                                    <Image src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg" alt="Michael Levi" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
                                     <div className="flex flex-col">
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Michael Levi</p>
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">michael@creative-tim.com</p>
@@ -237,7 +238,7 @@ const PostListPage = () => {
                             </td>
                             <td className="p-4">
                                 <div className="flex items-center gap-3">
-                                    <img src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg" alt="Richard Gran" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
+                                    <Image src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg" alt="Richard Gran" className="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md" />
                                     <div className="flex flex-col">
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Richard Gran</p>
                                         <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">richard@creative-tim.com</p>

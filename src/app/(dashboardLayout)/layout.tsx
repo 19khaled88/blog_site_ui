@@ -7,6 +7,7 @@ import Header from '@/components/dashboard/header'
 import Sidebar from '@/components/dashboard/sidebar'
 import React from 'react'
 import Loading_Compoent from '@/contants/loading_component'
+import ProtectedRoute from '@/context/protectedRoute'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const [isOpened, setOpened] = useState(false);
@@ -28,15 +29,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         )
     } else {
         return (
-            <DashboardContainer>
-                <Header isOpened={isOpened} toggleDrawer={toggleDrawer} />
-                <DashboardContent>
-                    <Sidebar isOpened={isOpened} />
-                    <DashboardPageContainer>{children}</DashboardPageContainer>
-                    {/* <DashboardPageContainer>{children}</DashboardPageContainer> */}
-                </DashboardContent>
-                <Footer />
-            </DashboardContainer>
+            <ProtectedRoute>
+                <DashboardContainer>
+                    <Header isOpened={isOpened} toggleDrawer={toggleDrawer} />
+                    <DashboardContent>
+                        <Sidebar isOpened={isOpened} />
+                        <DashboardPageContainer>{children}</DashboardPageContainer>
+                        {/* <DashboardPageContainer>{children}</DashboardPageContainer> */}
+                    </DashboardContent>
+                    <Footer />
+                </DashboardContainer>
+            </ProtectedRoute>
         )
     }
 

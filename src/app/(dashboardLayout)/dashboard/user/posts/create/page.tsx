@@ -50,11 +50,7 @@ const CreatePage = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    
-
     try {
-
       const formData = new FormData();
       formData.append("file", image);
       formData.append("upload_preset", "daamw3ao");
