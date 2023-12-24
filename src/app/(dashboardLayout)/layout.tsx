@@ -10,7 +10,7 @@ import Loading_Compoent from '@/contants/loading_component'
 import ProtectedRoute from '@/context/protectedRoute'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-    const [isOpened, setOpened] = useState(false);
+    const [isOpened, setOpened] = useState(true);
     const [isLoading, setIsloading] = useState(true)
     const toggleDrawer = () => {
         setOpened((prev) => !prev);

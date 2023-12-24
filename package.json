@@ -25,6 +25,7 @@
     "react-awesome-slider": "^4.1.0",
     "react-bootstrap": "^2.9.1",
     "react-bootstrap-icons": "^1.10.3",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18",
     "react-feather": "^2.0.10",
     "react-hot-toast": "^2.4.1",

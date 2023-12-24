@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Gadget_software = () => {
+const Gadget_software = ({gadgets,softwares}:{gadgets:any,softwares:any}) => {
 
     const gadget_view = (data: any) => {
         let array: any = []

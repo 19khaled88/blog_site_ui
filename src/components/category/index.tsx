@@ -7,7 +7,7 @@ const Category = () => {
         let array:any=[]
             data.map((item:any, index:number)=>{
                 array.push(
-                    <Link className={`link ${styles.link_underline} ${styles.link_underline_black} ${styles.text_black} pb-1 hover:text-indigo-600 w-fit`} href={item.toLowerCase().split(' ').join('_')}>{item}</Link>
+                    <Link key={index} className={`link ${styles.link_underline} ${styles.link_underline_black} ${styles.text_black} pb-1 hover:text-indigo-600 w-fit`} href={item.toLowerCase().split(' ').join('_')}>{item}</Link>
                 )
             })
 

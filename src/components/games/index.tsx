@@ -1,9 +1,38 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import game_1 from '../../../public/slider/game_1.jpg'
 import game_2 from '../../../public/slider/game_2.jpg'
 import Image from 'next/image'
-const GamePage = () => {
+const GamePage = ({post}:{post:any}) => {
+    const [game, setGame] = useState([])
+    const [loading, setLoading] = useState(true)
+
+
+    useEffect(() => {
+        if (post && post[0] != undefined) {
+            setGame(post[0].posts)
+            setLoading(false)
+        }
+    }, [post])
+   
+
+    const showGames=(data:any)=>{
+        let array:any=[];
+        data.slice(0,2).map((item:any, index:number)=>{
+            array.push(
+                <Link href="#" className='relative'>
+                <Image style={{ width: '100%' }} src={item.avatar} alt="No image" width={500} height={500} />
+                <div className='absolute bottom-5 pl-5 text-white flex flex-col gap-5 text-xs font-semibold'>
+                    <h1 className='text-2xl'>{item.title}</h1>
+                    <p className='text-white text-lg'>{item.content}</p>
+                </div>
+            </Link>  
+            )
+        })
+
+        return array
+    }
+
     return (
         <div className='px-10'>
             <span className='flex flex-row justify-between items-center pb-5'>
@@ -20,22 +49,9 @@ const GamePage = () => {
                 </Link>
             </span>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
-                <Link href="#" className='relative'>
-                    <Image style={{ width: '100%' }} src={game_1} alt="No image" width={500} height={500} />
-                    <div className='absolute bottom-5 pl-5 text-white flex flex-col gap-5 text-xs font-semibold'>
 
-                        <h1 className='text-2xl'>After Badger Buries Entire Cow Carcass, Scientists Go to the Tap</h1>
-                        <p className='text-white text-lg'>Cursus iaculis etiam in In nullam donec sem sed consequat scelerisque nibh amet, massa egestas risus, gravida vel amet, imperdiet …</p>
-                    </div>
-                </Link>
-                <Link href="#" className='relative'>
-                    <Image style={{ width: '100%' }} src={game_2} alt="No image" width={500} height={500} />
-                    <div className='absolute bottom-5 pl-5 text-white flex flex-col gap-5 text-xs font-semibold'>
-
-                        <h1 className='text-md sm:text-lg md:text-xl lg:text-lg'>A Genetic Oddity May Give Octopuses and Squids Their Smarts</h1>
-                        <p className='text-white text-xs sm:text-md md:text-lg'>Cursus iaculis etiam in In nullam donec sem sed consequat scelerisque nibh amet, massa egestas risus, gravida vel amet, imperdiet …</p>
-                    </div>
-                </Link>
+                {showGames(game)}
+               
             </div>
         </div>
     )

@@ -193,6 +193,7 @@ export const technology = [
         date: 'July 7, 2021'
     },
 ]
+
 export const games = [
     {
         image: '/slider/games_1.jpg',
@@ -316,11 +317,6 @@ export const gadget = [
             consectetur vestibulum purus …
         `
     },
-
-
-
-
-
 ]
 
 export const software = [

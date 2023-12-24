@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const PodcastPage = () => {
+const PodcastPage = ({ posts }: { posts: any }) => {
     const podCast = (data: any) => {
         let array: any = []
         data.map((item: any, index: number) => {
@@ -19,20 +19,23 @@ const PodcastPage = () => {
     }
     return (
         <div className='grid grid-cols-1 md:grid-cols-4 gap-5 px-5' style={{ backgroundImage: 'linear-gradient(to top, #37ecba 0%, #72afd3 100%)' }}>
-            <div className='col-span-3 grid grid-cols-3'>
-                <Image className='w-full lg:w-4/5' src="/slider/posdcast-removebg-preview.png" alt="no image" width={1500} height={1000} />
-                <div className='col-span-2'>
+            <div className='flex  items-center justify-center'>
+                <Image className='w-2/5 md:w-full lg:w-4/5' src="/slider/posdcast-removebg-preview.png" alt="no image" width={1500} height={1000} />
+
+            </div>
+            <div className='md:col-span-3 items-center md:h-full md:justify-center'>
+
+                <div className='flex flex-col lg:flex-row py-3 lg:py-0 lg:justify-between lg:items-center h-full'>
                     {
                         podCast(pod_cast)
                     }
+
+                    <Link
+                        href="#"
+                        className="w-fit transform hover:scale-110 transition duration-500 ease-in-out bg-indigo-500 text-center  text-white font-bold px-5 py-2  rounded-full">
+                        Listen Now
+                    </Link>
                 </div>
-            </div>
-            <div className='flex flex-row items-center sm:h-24 md:h-full md:justify-center'>
-                <Link
-                    href="#"
-                    className="w-fit transform hover:scale-110 transition duration-500 ease-in-out bg-indigo-500 text-center  text-white font-bold px-5 py-2  rounded-full">
-                    Listen Now
-                </Link>
             </div>
 
         </div>
